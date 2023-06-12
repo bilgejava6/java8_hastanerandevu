@@ -13,7 +13,7 @@ import java.util.List;
 public class DoktorService extends ServiceManager<Doktor,Long> {
     private final IDoktorRepository repository;
 
-    public DoktorService(IDoktorRepository repository,RandevuService randevuService){
+    public DoktorService(IDoktorRepository repository){
         super(repository);
         this.repository = repository;
     }

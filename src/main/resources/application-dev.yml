@@ -29,7 +29,7 @@ spring:
 
 
 myapplication:
-    name: "Hastane Randevu Sistemi"
+    name: "Developer Hastane Randevu Sistemi"
     version: "1.0.0"
     description: "Hastane Randevu Sistemi"
 

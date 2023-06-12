@@ -3,7 +3,6 @@ package com.muhammet.hastanerandevu.service;
 import com.muhammet.hastanerandevu.dto.request.RandevuSaveReqestDto;
 import com.muhammet.hastanerandevu.exceptions.ErrorType;
 import com.muhammet.hastanerandevu.exceptions.HastaneRandevuException;
-import com.muhammet.hastanerandevu.repository.IDoktorRepository;
 import com.muhammet.hastanerandevu.repository.IRandevuRepository;
 import com.muhammet.hastanerandevu.repository.entity.Randevu;
 import com.muhammet.hastanerandevu.utility.ServiceManager;
@@ -11,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RandevuService extends ServiceManager<Randevu,Long> {
+
+    private final DoktorService doktorService;
+    private final HastaService hastaService;
     private final IRandevuRepository repository;
     /**
      * TODO: Bir servisin içinde başka bir sevisi kullanmak doğru mudur?
@@ -23,15 +25,13 @@ public class RandevuService extends ServiceManager<Randevu,Long> {
      */
     // private final IDoktorRepository doktorRepository;
 
-    private final DoktorService doktorService;
-    private final HastaService hastaService;
     public RandevuService(IRandevuRepository repository,
                           DoktorService doktorService,
                           HastaService hastaService){
         super(repository);
-        this.repository = repository;
         this.doktorService = doktorService;
         this.hastaService = hastaService;
+        this.repository = repository;
     }
 
     public Randevu save(RandevuSaveReqestDto dto){
